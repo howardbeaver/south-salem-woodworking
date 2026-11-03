@@ -1,8 +1,11 @@
 # South Salem Woodworking
 
-A website for South Salem Woodworking, the home remodeling business of Jeff Cyrnic. It's aimed at upscale clients and shows his work in four photo galleries: Kitchens, Bathrooms, Interiors and Exteriors.
+A website for South Salem Woodworking, the home remodeling business of Jeff Cernak. It's aimed at upscale clients and shows his work in four photo galleries: Kitchens, Bathrooms, Interiors and Exteriors.
 
-The site is plain HTML, CSS and JavaScript, with no framework and no build step. It will be hosted on Vercel from GitHub.
+The site is plain HTML, CSS and JavaScript, with no framework and no build step. It's hosted on Vercel from GitHub, and every push to `main` redeploys it.
+
+- **Live preview:** https://south-salem-woodworking.vercel.app. It's hidden from search engines and marked "Preview site · Sample photos" until Jeff's real photos and details are in.
+- **Repo:** https://github.com/howardbeaver/south-salem-woodworking
 
 ## Run locally
 
@@ -47,5 +50,5 @@ The current photos are **placeholders**: free Unsplash stock photos, not Jeff's 
 - [x] **M6 About, Services, Contact:** placeholder text, contact details, form (not connected)
 - [x] **M7 Responsive:** tablet and phone layouts, phone menu
 - [x] **M8 Testing:** Chrome, Safari, a real phone (Safari check with the user; real phone after M9)
-- [ ] **M9 Deploy:** GitHub and Vercel
+- [x] **M9 Deploy:** GitHub and Vercel (hidden preview; real-phone test pending)
 - [ ] **M10 Real content:** photos, real contact details, form service, domain

@@ -1,13 +1,18 @@
 # South Salem Woodworking
 
-A multi-page website for South Salem Woodworking, the home remodeling business of general contractor Jeff Cyrnic. His clients are upscale, so the site should look sophisticated. It's plain HTML, CSS and JavaScript, with no framework, no build step and no npm. It will be hosted on Vercel from a GitHub repo (M9).
+A multi-page website for South Salem Woodworking, the home remodeling business of general contractor Jeff Cernak. His clients are upscale, so the site should look sophisticated. It's plain HTML, CSS and JavaScript, with no framework, no build step and no npm. It's hosted on Vercel from GitHub.
+
+- **Live (hidden preview):** https://south-salem-woodworking.vercel.app
+- **Repo:** https://github.com/howardbeaver/south-salem-woodworking. It's public, and every push to `main` redeploys on Vercel (Framework Preset: Other, no build command).
+- **Until launch (M10)** the live site is a **hidden preview**: a `noindex, nofollow` meta tag on every page, a `robots.txt` that disallows everything, and a brass "Preview site · Sample photos" line (`.preview-note`) at the top of every page. All three are marked `PREVIEW: remove at launch (M10)`. Remove them only when the stock photos and placeholder details are replaced.
+- **`.vercelignore`** keeps `CLAUDE.md`, `README.md`, `dev-server.py`, `tools/` and `images/PLACEHOLDERS.md` off the live site (they return 404); they're still in the repo.
 
 This is a fresh project. Don't reuse code, assets or decisions from the user's other projects.
 
 ## Names
 
 - Business: **South Salem Woodworking** (one word, "Woodworking").
-- Contractor: **Jeff Cyrnic**. The spelling isn't confirmed and may change. To update it, search the project for `Cyrnic`.
+- Contractor: **Jeff Cernak**. The user gave this spelling on 2026-11-03; earlier commit messages use a guessed spelling. To change it again, search the project for `Cernak`.
 
 ## Files
 
@@ -71,7 +76,7 @@ This serves http://localhost:8080.
   - **If you add anything to the fold,** re-check 1366x657 and 375x667; those are the tightest.
 - **Home hero (M3):** a full-bleed photo with a slate gradient rising from the bottom. The current placeholder is a white Georgian colonial (Unsplash), cropped tight to 2400x1000 with little sky and no road, and anchored with `object-position: center 70%`. A replacement hero should be a similar wide crop, centred on the house, with the foreground in the bottom third. The headline "Crafted Homes / in Northern Westchester" (draft copy) is in ivory Montserrat at 0.14em, `clamp(20px, min(4.2vh, 6.4vw), 34px)`, over a "View our work →" link that jumps to `#our-work`.
 - **Home thumbnails (M3):** a small "Our Work" heading (16px), then four 3:2 cover photos in one row (two by two at 600px and below). Each has a spaced-capitals label and a 28px brass rule underneath. On hover or focus the photo scales to 1.04 and the rule grows to 64px; the motion is turned off for reduced-motion users. The italic intro line was removed to save height.
-- **Footer (M3):** slate background in three columns: brand (logo plus "Jeff Cyrnic, General Contractor"), Contact (placeholder phone (914) 555-0100, info@example.com, service area) and Explore (page links). A thin brass line sits above the © line.
+- **Footer (M3):** slate background in three columns: brand (logo plus "Jeff Cernak, General Contractor"), Contact (placeholder phone (914) 555-0100, info@example.com, service area) and Explore (page links). A thin brass line sits above the © line.
 - **Phone menu (M7, `js/nav.js`):** a drop-down, and the user asked that it **not be too small**.
   - **The button:** at **720px and below**, a 48x48 `.menu-toggle` (three lines that turn into an X) replaces the nav links. The button sits before `<nav id="site-nav">` in every header.
   - **The panel:** the nav becomes a full-width slate panel under the header, with links in 16px spaced capitals in ~56px-tall rows divided by faint brass lines. The current page is marked with a brass dash. A `.nav-phone` link (Lora 20px, brass, placeholder number) is shown only in this panel.
@@ -120,7 +125,7 @@ Each milestone ends with a commit whose message starts with its ID, but **only a
   - **Safari:** the user is checking it themselves, using a checklist.
   - **Real phone:** deferred to right after M9, on the live URL.
   - **Not tested:** Firefox (not installed) and the reduced-motion path (the preview can't emulate it).
-- [ ] **M9 Deploy:** GitHub and Vercel
+- [x] **M9 Deploy:** GitHub and Vercel (hidden preview; real-phone test pending)
 - [ ] **M10 Real content:** photos, real contact details, form service, domain
 
 ## Working agreements

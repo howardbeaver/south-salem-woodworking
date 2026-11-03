@@ -1,7 +1,7 @@
 # Placeholder photos
 
 These are free stock photos from Unsplash (https://unsplash.com/license), used only as
-placeholders. They are **not** Jeff Cyrnic's work and must all be replaced with his real
+placeholders. They are **not** Jeff Cernak's work and must all be replaced with his real
 project photos before the site launches (M10).
 
 | File | Unsplash image |
