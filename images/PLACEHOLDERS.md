@@ -6,7 +6,7 @@ project photos before the site launches (M10).
 
 | File | Unsplash image |
 | --- | --- |
-| `hero/hero-exterior.jpg` | https://images.unsplash.com/photo-1767982008445-34182061f0b0 |
+| `hero/hero-exterior.jpg` | https://images.unsplash.com/photo-1622328331602-663066fcecc2 (cropped: less sky, no road) |
 | `kitchens/cover.jpg` | https://images.unsplash.com/photo-1785535573585-8f962fa3cda5 |
 | `kitchens/kitchen-01.jpg` | https://images.unsplash.com/photo-1785535573585-8f962fa3cda5 |
 | `kitchens/kitchen-02.jpg` | https://images.unsplash.com/photo-1783841193339-9a2ec13b4118 |

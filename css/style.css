@@ -159,7 +159,7 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 55%;
+  object-position: center 70%; /* keep the hedge and lawn in view on wide screens */
 }
 
 .hero::after {

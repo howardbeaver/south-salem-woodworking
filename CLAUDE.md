@@ -20,7 +20,7 @@ exteriors.html  /  photos, alt text and More Work links (M5)
 css/style.css   all styles; colour and size tokens on :root
 js/gallery.js   lightbox shared by every gallery page
 dev-server.py   local server on port 8080 with no-cache (development only)
-images/         hero/hero-exterior.jpg (2400x1350)
+images/         hero/hero-exterior.jpg (2400x1000, wide crop; shown with object-position center 70%)
                 <category>/cover.jpg (1200x900) and <singular>-01..09.jpg (1600x1200)
                 for kitchens, bathrooms, interiors, exteriors
 images/PLACEHOLDERS.md   source of every placeholder photo
@@ -64,7 +64,7 @@ This serves http://localhost:8080.
 - **Home fold (M3):** the thumbnails must be **above the fold on every major viewport**. `.home-fold` wraps the header and `<main>` at exactly `100svh` (min 560px). The hero flexes into whatever height is left (min 220px). Each thumbnail's height is capped at `--thumb-max-h`, which caps the row's width; it's 24svh on desktop and tablet and 15svh on phones, where the thumbnails sit two by two. The Our Work padding and the hero text spacing scale with `vh` via `clamp()`.
   - **Checked (inner window sizes):** 1920x960, 1536x730, 1440x789, 1366x657, 1280x689, 1200x800, 1024x768, 820x1180 and 768x1024. 390x844 and 375x667 were checked with the M7 header simulated.
   - **If you add anything to the fold,** re-check 1366x657 and 375x667; those are the tightest.
-- **Home hero (M3):** a full-bleed photo with a slate gradient rising from the bottom. The headline "Crafted Homes / in Northern Westchester" (draft copy) is in ivory Montserrat at 0.14em, `clamp(20px, min(4.2vh, 6.4vw), 34px)`, over a "View our work →" link that jumps to `#our-work`.
+- **Home hero (M3):** a full-bleed photo with a slate gradient rising from the bottom. The current placeholder is a white Georgian colonial (Unsplash), cropped tight to 2400x1000 with little sky and no road, and anchored with `object-position: center 70%`. A replacement hero should be a similar wide crop, centred on the house, with the foreground in the bottom third. The headline "Crafted Homes / in Northern Westchester" (draft copy) is in ivory Montserrat at 0.14em, `clamp(20px, min(4.2vh, 6.4vw), 34px)`, over a "View our work →" link that jumps to `#our-work`.
 - **Home thumbnails (M3):** a small "Our Work" heading (16px), then four 3:2 cover photos in one row (two by two at 600px and below). Each has a spaced-capitals label and a 28px brass rule underneath. On hover or focus the photo scales to 1.04 and the rule grows to 64px; the motion is turned off for reduced-motion users. The italic intro line was removed to save height.
 - **Footer (M3):** slate background in three columns: brand (logo plus "Jeff Cyrnic, General Contractor"), Contact (placeholder phone (914) 555-0100, info@example.com, service area) and Explore (page links). A thin brass line sits above the © line.
 - **Known until M7:** the header doesn't fit at phone width (it forces the page to about 645px). The M7 phone menu fixes this.

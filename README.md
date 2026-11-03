@@ -25,7 +25,7 @@ Then open http://localhost:8080. The server sends `Cache-Control: no-cache`, so 
 
 Photos go in `images/`, one folder per category (`hero/`, `kitchens/`, `bathrooms/`, `interiors/`, `exteriors/`).
 
-- Hero: `hero/hero-exterior.jpg`, 2400x1350.
+- Hero: `hero/hero-exterior.jpg`, 2400x1000 (a wide crop, centred on the front door, with the lawn at the bottom; CSS anchors it at 70% down so the foreground stays in view).
 - Each category: `cover.jpg` at 1200x900 for the home page thumbnail, plus `kitchen-01.jpg` to `kitchen-09.jpg` (and so on) at 1600x1200 for the gallery.
 
 The current photos are **placeholders**: free Unsplash stock photos, not Jeff's work. `images/PLACEHOLDERS.md` lists where each one came from. Replace them all with real project photos, keeping the same filenames, before the site launches (M10).
