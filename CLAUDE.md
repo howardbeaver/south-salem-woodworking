@@ -13,7 +13,9 @@ This is a fresh project. Don't reuse code, assets or decisions from the user's o
 
 ```
 index.html      home: header, hero, four category thumbnails, footer
+kitchens.html   gallery template: intro, lead photo + grid, More Work links, lightbox <dialog>
 css/style.css   all styles; colour and size tokens on :root
+js/gallery.js   lightbox shared by every gallery page
 dev-server.py   local server on port 8080 with no-cache (development only)
 images/         hero/hero-exterior.jpg (2400x1350)
                 <category>/cover.jpg (1200x900) and <singular>-01..09.jpg (1600x1200)
@@ -22,7 +24,7 @@ images/PLACEHOLDERS.md   source of every placeholder photo
 README.md       overview, how to run, milestones
 ```
 
-Planned: `kitchens.html`, `bathrooms.html`, `interiors.html`, `exteriors.html`, `about.html`, `services.html`, `contact.html`, and `js/` when scripts are needed (M4). Each page shares the same header and footer.
+Planned: `bathrooms.html`, `interiors.html` and `exteriors.html` (copies of `kitchens.html`, M5), plus `about.html`, `services.html` and `contact.html` (M6). Each page shares the same header and footer.
 
 `.gitignore` keeps `.DS_Store`, `.claude/` and `__pycache__/` out of git.
 
@@ -58,7 +60,14 @@ This serves http://localhost:8080.
 - **Footer (M3):** slate background in three columns: brand (logo plus "Jeff Cyrnic, General Contractor"), Contact (placeholder phone (914) 555-0100, info@example.com, service area) and Explore (page links). A thin brass line sits above the © line.
 - **Known until M7:** the header doesn't fit at phone width (it forces the page to about 645px). The M7 phone menu fixes this.
 - **Home page:** one large hero image of a home exterior, with four thumbnails under it (Kitchens, Bathrooms, Interiors, Exteriors). Each thumbnail links to its gallery page.
-- **Galleries:** a photo grid. Clicking a photo opens a full-screen lightbox with arrows, keyboard and swipe navigation, written in plain JavaScript with no library.
+- **Gallery page (M4, `kitchens.html` is the template):**
+  - **Layout:** an "← All work" link back to `index.html#our-work`, a centred h1 (30px, 0.26em, with padding-left to balance the spacing) and an italic brass intro (draft copy). Then the photos: the **first one spans the full width at 2:1** and the rest sit in an even 4:3 grid, **4 across, 2 at 900px and below, 1 at 600px and below** (the lead turns 4:3 on phones). 9 photos give even rows everywhere; a different count can leave a short last row. A "More Work" row links to the other three galleries.
+  - **Markup:** each photo is `<li><a href="full.jpg"><img …></a></li>`, so without JavaScript the link just opens the image. Only the first photo isn't lazy-loaded. Alt text is "Kitchen, photo N" until there are real descriptions.
+- **Lightbox (M4, `js/gallery.js`):** a native `<dialog class="lightbox">` opened with `showModal()`. It shows the link's full image, uncropped, with an "N / 9" counter, round prev/next buttons (at the sides on desktop, bottom centre on phones) and a close button that gets focus on open (`autofocus`).
+  - **Controls:** ←/→ keys, swiping (50px or more, mostly horizontal) and the buttons all wrap around. Escape, the close button or a click outside the photo closes it.
+  - **While open:** page scrolling is locked (`.lightbox-open` on `<html>`) and both neighbouring photos are preloaded.
+  - **On close:** focus returns to the last photo viewed.
+  - **Any gallery page needs:** the same `<dialog>` markup and `<script src="js/gallery.js" defer>`.
 - **Other pages:** About, Services and Contact.
 - **Contact:** contact details plus a form. The form isn't connected yet; it'll go through a service such as Formspree once Jeff's real email is known (M10).
 - **Placeholders:** images, phone (555), email (example.com) and service area are clearly marked placeholders until the user supplies real ones.
@@ -71,7 +80,7 @@ Each milestone ends with a commit whose message starts with its ID, but **only a
 - [x] **M1 Setup:** folders, page skeleton, dev server, README, `git init`
 - [x] **M2 Design direction:** fonts, palette, text logo, placeholder images
 - [x] **M3 Home page:** header, hero, four category thumbnails, footer; thumbnails above the fold on all major viewports (further tweaks expected later)
-- [ ] **M4 Gallery template:** Kitchens grid with a lightbox
+- [x] **M4 Gallery template:** Kitchens grid with a lightbox (further tweaks expected later)
 - [ ] **M5 Other galleries:** Bathrooms, Interiors, Exteriors
 - [ ] **M6 About, Services, Contact:** placeholder text, contact details, form (not connected)
 - [ ] **M7 Responsive:** tablet and phone layouts, phone menu
