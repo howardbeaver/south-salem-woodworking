@@ -14,6 +14,9 @@ This is a fresh project. Don't reuse code, assets or decisions from the user's o
 ```
 index.html      home: header, hero, four category thumbnails, footer
 kitchens.html   gallery template: intro, lead photo + grid, More Work links, lightbox <dialog>
+bathrooms.html  \
+interiors.html   > copies of kitchens.html with their own title, description, intro,
+exteriors.html  /  photos, alt text and More Work links (M5)
 css/style.css   all styles; colour and size tokens on :root
 js/gallery.js   lightbox shared by every gallery page
 dev-server.py   local server on port 8080 with no-cache (development only)
@@ -24,7 +27,13 @@ images/PLACEHOLDERS.md   source of every placeholder photo
 README.md       overview, how to run, milestones
 ```
 
-Planned: `bathrooms.html`, `interiors.html` and `exteriors.html` (copies of `kitchens.html`, M5), plus `about.html`, `services.html` and `contact.html` (M6). Each page shares the same header and footer.
+Planned: `about.html`, `services.html` and `contact.html` (M6). Each page shares the same header and footer.
+
+**The four gallery pages are hand-kept copies.** A change to the shared header, footer, lightbox markup or gallery structure has to be made in all four (and in `index.html` for the header and footer). The intro lines are draft copy:
+- Kitchens: "Custom cabinetry, stone and millwork, planned around the way each family cooks and gathers."
+- Bathrooms: "Stone, tile and custom vanities, finished with the care of fine furniture."
+- Interiors: "Millwork, built-ins and fireplaces: the details that make a room feel finished."
+- Exteriors: "Porches, siding, trim and additions, built to suit the house and made to last."
 
 `.gitignore` keeps `.DS_Store`, `.claude/` and `__pycache__/` out of git.
 
@@ -81,7 +90,7 @@ Each milestone ends with a commit whose message starts with its ID, but **only a
 - [x] **M2 Design direction:** fonts, palette, text logo, placeholder images
 - [x] **M3 Home page:** header, hero, four category thumbnails, footer; thumbnails above the fold on all major viewports (further tweaks expected later)
 - [x] **M4 Gallery template:** Kitchens grid with a lightbox (further tweaks expected later)
-- [ ] **M5 Other galleries:** Bathrooms, Interiors, Exteriors
+- [x] **M5 Other galleries:** Bathrooms, Interiors, Exteriors
 - [ ] **M6 About, Services, Contact:** placeholder text, contact details, form (not connected)
 - [ ] **M7 Responsive:** tablet and phone layouts, phone menu
 - [ ] **M8 Testing:** Chrome, Safari, a real phone

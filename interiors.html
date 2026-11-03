@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interiors | South Salem Woodworking</title>
+  <meta name="description" content="Interior remodeling by South Salem Woodworking: millwork, built-ins and fireplaces by Jeff Cyrnic.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Montserrat:wght@500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/gallery.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <span class="logo-name">South Salem Woodworking</span>
+      <span class="logo-tag">Fine Home Remodeling</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-intro">
+      <a class="back-link" href="index.html#our-work">All work</a>
+      <h1>Interiors</h1>
+      <p>Millwork, built-ins and fireplaces: the details that make a room feel finished.</p>
+    </section>
+
+    <!-- Each link opens its photo in the lightbox (js/gallery.js); without JavaScript it opens the image itself -->
+    <ul class="gallery" aria-label="Interior photos">
+      <li><a href="images/interiors/interior-01.jpg"><img src="images/interiors/interior-01.jpg" width="1600" height="1200" alt="Interior, photo 1"></a></li>
+      <li><a href="images/interiors/interior-02.jpg"><img src="images/interiors/interior-02.jpg" width="1600" height="1200" alt="Interior, photo 2" loading="lazy"></a></li>
+      <li><a href="images/interiors/interior-03.jpg"><img src="images/interiors/interior-03.jpg" width="1600" height="1200" alt="Interior, photo 3" loading="lazy"></a></li>
+      <li><a href="images/interiors/interior-04.jpg"><img src="images/interiors/interior-04.jpg" width="1600" height="1200" alt="Interior, photo 4" loading="lazy"></a></li>
+      <li><a href="images/interiors/interior-05.jpg"><img src="images/interiors/interior-05.jpg" width="1600" height="1200" alt="Interior, photo 5" loading="lazy"></a></li>
+      <li><a href="images/interiors/interior-06.jpg"><img src="images/interiors/interior-06.jpg" width="1600" height="1200" alt="Interior, photo 6" loading="lazy"></a></li>
+      <li><a href="images/interiors/interior-07.jpg"><img src="images/interiors/interior-07.jpg" width="1600" height="1200" alt="Interior, photo 7" loading="lazy"></a></li>
+      <li><a href="images/interiors/interior-08.jpg"><img src="images/interiors/interior-08.jpg" width="1600" height="1200" alt="Interior, photo 8" loading="lazy"></a></li>
+      <li><a href="images/interiors/interior-09.jpg"><img src="images/interiors/interior-09.jpg" width="1600" height="1200" alt="Interior, photo 9" loading="lazy"></a></li>
+    </ul>
+
+    <nav class="more-work" aria-label="More work">
+      <h2>More Work</h2>
+      <ul>
+        <li><a href="kitchens.html">Kitchens</a></li>
+        <li><a href="bathrooms.html">Bathrooms</a></li>
+        <li><a href="exteriors.html">Exteriors</a></li>
+      </ul>
+    </nav>
+  </main>
+
+  <!-- Lightbox, opened by js/gallery.js -->
+  <dialog class="lightbox" aria-label="Photo viewer">
+    <figure class="lightbox-figure">
+      <img class="lightbox-img" src="" alt="">
+      <figcaption class="lightbox-count" aria-live="polite"></figcaption>
+    </figure>
+    <button class="lightbox-btn lightbox-prev" type="button" aria-label="Previous photo"></button>
+    <button class="lightbox-btn lightbox-next" type="button" aria-label="Next photo"></button>
+    <button class="lightbox-close" type="button" aria-label="Close" autofocus></button>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-name">South Salem Woodworking</span>
+        <span class="logo-tag">Fine Home Remodeling</span>
+        <p>Jeff Cyrnic, General Contractor</p>
+      </div>
+
+      <!-- PLACEHOLDER contact details: replace with Jeff's real ones (M10) -->
+      <div class="footer-contact">
+        <h2>Contact</h2>
+        <p><a href="tel:+19145550100">(914) 555-0100</a></p>
+        <p><a href="mailto:info@example.com">info@example.com</a></p>
+        <p>Serving northern Westchester</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="footer-legal">&copy; 2026 South Salem Woodworking</p>
+  </footer>
+</body>
+</html>
