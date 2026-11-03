@@ -60,9 +60,12 @@ h3 {
 /* ---------- Header and logo ---------- */
 
 .site-header {
+  position: relative;
+  z-index: 20; /* above the hero, so the phone menu drops over it */
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
   min-height: var(--header-h);
   padding: 0 var(--pad-x);
   background: var(--slate);
@@ -120,6 +123,72 @@ h3 {
   padding-bottom: 6px;
   border-bottom: 1px solid var(--brass-light);
   color: var(--brass-light);
+}
+
+/* Phone menu pieces, hidden until the 720px breakpoint */
+.menu-toggle,
+.nav-phone {
+  display: none;
+}
+
+.menu-toggle {
+  flex: none;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-right: -10px; /* line the icon up with the page padding */
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ivory);
+  cursor: pointer;
+}
+
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--brass-light);
+  outline-offset: -2px;
+}
+
+/* Three lines that turn into an X when the menu is open */
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: currentColor;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.menu-icon {
+  position: relative;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menu-icon::before {
+  top: -8px;
+}
+
+.menu-icon::after {
+  top: 8px;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-icon {
+  background: transparent;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-icon::before {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-icon::after {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 .logo:focus-visible,
@@ -967,8 +1036,98 @@ h3 {
   }
 }
 
+/* Phone menu: the nav drops down under the header as a full-width slate panel.
+   Only when nav.js has run (.has-menu); without it the nav stays visible. */
+@media (max-width: 720px) {
+  .has-menu .menu-toggle {
+    display: grid;
+  }
+
+  .has-menu .site-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 8px var(--pad-x) 28px;
+    border-top: 1px solid rgba(201, 165, 107, 0.25); /* --brass-light */
+    background: var(--slate);
+    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transform: translateY(-8px);
+    visibility: hidden;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
+  }
+
+  .has-menu .menu-toggle[aria-expanded="true"] + .site-nav {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  /* Generous rows: 16px capitals in ~56px-tall tap targets */
+  .has-menu .site-nav ul {
+    display: block;
+  }
+
+  .has-menu .site-nav li {
+    border-bottom: 1px solid rgba(201, 165, 107, 0.2); /* --brass-light */
+  }
+
+  .has-menu .site-nav ul a {
+    display: block;
+    padding: 20px 0;
+    font-size: 16px;
+    letter-spacing: 0.22em;
+  }
+
+  .has-menu .site-nav a[aria-current="page"] {
+    padding-bottom: 20px;
+    border-bottom: 0;
+  }
+
+  .has-menu .site-nav a[aria-current="page"]::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 1px;
+    margin-right: 14px;
+    vertical-align: middle;
+    background: var(--brass-light);
+  }
+
+  .has-menu .nav-phone {
+    display: block;
+    margin: 24px 0 0;
+  }
+
+  .has-menu .nav-phone a {
+    color: var(--brass-light);
+    font: 400 20px/1.3 var(--font-body);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+}
+
 /* Phones: two rows of two, each row allowed less height */
 @media (max-width: 600px) {
+  :root {
+    --header-h: 72px;
+    --pad-x: 20px;
+  }
+
+  .logo-name {
+    padding-bottom: 7px;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+  }
+
+  .logo-tag {
+    margin-top: 7px;
+    font-size: 9px;
+    letter-spacing: 0.36em;
+  }
+
   .categories {
     --thumb-max-h: 15svh;
     --thumb-gap: 14px;
@@ -1035,7 +1194,33 @@ h3 {
   .category-name::after,
   .gallery img,
   .lightbox-img,
-  .service-photo img {
+  .service-photo img,
+  .menu-icon,
+  .menu-icon::before,
+  .menu-icon::after,
+  .has-menu .site-nav,
+  .has-menu .menu-toggle[aria-expanded="true"] + .site-nav {
     transition: none;
+  }
+}
+
+/* Small phones (360-400px): a slightly smaller logo so it fits beside the
+   menu button. Kept last so it wins over the 600px rules above. */
+@media (max-width: 400px) {
+  :root {
+    --pad-x: 16px;
+  }
+
+  .site-header {
+    gap: 12px;
+  }
+
+  .logo-name {
+    font-size: 14px;
+    letter-spacing: 0.08em;
+  }
+
+  .logo-tag {
+    letter-spacing: 0.3em;
   }
 }

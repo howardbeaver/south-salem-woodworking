@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Montserrat:wght@500;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/nav.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -16,12 +17,17 @@
       <span class="logo-name">South Salem Woodworking</span>
       <span class="logo-tag">Fine Home Remodeling</span>
     </a>
-    <nav class="site-nav" aria-label="Main">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+      <span class="menu-icon" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
       <ul>
         <li><a href="about.html" aria-current="page">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <!-- PLACEHOLDER phone: shown only in the phone menu (M10) -->
+      <p class="nav-phone"><a href="tel:+19145550100">(914) 555-0100</a></p>
     </nav>
   </header>
 
