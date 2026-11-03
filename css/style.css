@@ -1,0 +1,35 @@
+/* South Salem Woodworking: all styles.
+   Colour and size tokens live on :root. The palette is a starting point,
+   to be refined in M2. */
+
+:root {
+  --charcoal: #2b2b2b;
+  --wood: #8a5a3b;
+  --cream: #f6f1e7;
+  --ink: var(--charcoal);
+  --gutter: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
