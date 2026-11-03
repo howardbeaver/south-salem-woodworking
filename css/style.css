@@ -57,6 +57,20 @@ h3 {
   text-transform: uppercase;
 }
 
+/* ---------- Preview notice (remove at launch, M10) ---------- */
+
+.preview-note {
+  flex: none;
+  margin: 0;
+  padding: 6px var(--pad-x);
+  background: var(--brass-text); /* ivory on it is 4.9:1 */
+  color: var(--ivory);
+  font: 600 10px/1.4 var(--font-display);
+  letter-spacing: 0.22em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 /* ---------- Header and logo ---------- */
 
 .site-header {
@@ -224,7 +238,7 @@ h3 {
 .hero {
   position: relative;
   flex: 1;
-  min-height: 220px;
+  min-height: 200px;
   overflow: hidden;
   background: var(--slate);
 }
