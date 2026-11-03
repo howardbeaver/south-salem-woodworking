@@ -27,6 +27,7 @@ Photos go in `images/`, one folder per category (`hero/`, `kitchens/`, `bathroom
 
 - Hero: `hero/hero-exterior.jpg`, 2400x1000 (a wide crop, centred on the front door, with the lawn at the bottom; CSS anchors it at 70% down so the foreground stays in view).
 - Each category: `cover.jpg` at 1200x900 for the home page thumbnail, plus `kitchen-01.jpg` to `kitchen-09.jpg` (and so on) at 1600x1200 for the gallery.
+- Each category also has a `thumbs/` folder of smaller 720px copies that the gallery grid shows. **After adding or replacing gallery photos, run `bash tools/make-thumbs.sh`** to rebuild them.
 
 The current photos are **placeholders**: free Unsplash stock photos, not Jeff's work. `images/PLACEHOLDERS.md` lists where each one came from. Replace them all with real project photos, keeping the same filenames, before the site launches (M10).
 
@@ -45,6 +46,6 @@ The current photos are **placeholders**: free Unsplash stock photos, not Jeff's 
 - [x] **M5 Other galleries:** Bathrooms, Interiors, Exteriors
 - [x] **M6 About, Services, Contact:** placeholder text, contact details, form (not connected)
 - [x] **M7 Responsive:** tablet and phone layouts, phone menu
-- [ ] **M8 Testing:** Chrome, Safari, a real phone
+- [x] **M8 Testing:** Chrome, Safari, a real phone (Safari check with the user; real phone after M9)
 - [ ] **M9 Deploy:** GitHub and Vercel
 - [ ] **M10 Real content:** photos, real contact details, form service, domain

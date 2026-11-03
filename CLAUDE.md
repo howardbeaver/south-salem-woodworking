@@ -25,8 +25,10 @@ js/gallery.js   lightbox shared by every gallery page
 js/contact.js   stops the contact form submitting while it isn't connected
 js/nav.js       phone menu, shared by every page
 dev-server.py   local server on port 8080 with no-cache (development only)
+tools/make-thumbs.sh   makes the 720px grid copies in images/<category>/thumbs/ (uses macOS sips)
 images/         hero/hero-exterior.jpg (2400x1000, wide crop; shown with object-position center 70%)
                 <category>/cover.jpg (1200x900) and <singular>-01..09.jpg (1600x1200)
+                <category>/thumbs/<singular>-01..09.jpg (720x540 grid copies)
                 for kitchens, bathrooms, interiors, exteriors
 images/PLACEHOLDERS.md   source of every placeholder photo
 README.md       overview, how to run, milestones
@@ -83,6 +85,8 @@ This serves http://localhost:8080.
 - **Gallery page (M4, `kitchens.html` is the template):**
   - **Layout:** an "← All work" link back to `index.html#our-work`, a centred h1 (30px, 0.26em, with padding-left to balance the spacing) and an italic brass intro (draft copy). Then the photos: the **first one spans the full width at 2:1** and the rest sit in an even 4:3 grid, **4 across, 2 at 900px and below, 1 at 600px and below** (the lead turns 4:3 on phones). 9 photos give even rows everywhere; a different count can leave a short last row. A "More Work" row links to the other three galleries.
   - **Markup:** each photo is `<li><a href="full.jpg"><img …></a></li>`, so without JavaScript the link just opens the image. Only the first photo isn't lazy-loaded. Alt text is "Kitchen, photo N" until there are real descriptions.
+  - **Grid copies (M8):** photos 02–09 show `images/<category>/thumbs/…` (720x540, quality 55, about 50–100 KB each) in the grid, while their link and the lightbox use the full-size file. The full-width lead photo 01 shows the full file. That cut each gallery's grid download by about 70% (Exteriors: 4.97 MB to 1.45 MB). **Whenever gallery photos are added or replaced, run `bash tools/make-thumbs.sh`.** A missing thumbnail shows as a broken image in the grid.
+  - **The lightbox `<img>` has no `src` in the markup** (an empty `src` is invalid and can re-request the page); `gallery.js` sets it on open.
 - **Lightbox (M4, `js/gallery.js`):** a native `<dialog class="lightbox">` opened with `showModal()`. It shows the link's full image, uncropped, with an "N / 9" counter, round prev/next buttons (at the sides on desktop, bottom centre on phones) and a close button that gets focus on open (`autofocus`).
   - **Controls:** ←/→ keys, swiping (50px or more, mostly horizontal) and the buttons all wrap around. Escape, the close button or a click outside the photo closes it.
   - **While open:** page scrolling is locked (`.lightbox-open` on `<html>`) and both neighbouring photos are preloaded.
@@ -110,7 +114,12 @@ Each milestone ends with a commit whose message starts with its ID, but **only a
 - [x] **M5 Other galleries:** Bathrooms, Interiors, Exteriors
 - [x] **M6 About, Services, Contact:** placeholder text, contact details, form (not connected)
 - [x] **M7 Responsive:** tablet and phone layouts, phone menu
-- [ ] **M8 Testing:** Chrome, Safari, a real phone
+- [x] **M8 Testing:** Chrome, Safari, a real phone (Safari check with the user; real phone after M9)
+  - **Chrome (built-in browser), all 8 pages:** no console errors or failed files, and all images and fonts load. Accessibility basics pass (lang, title, description, one h1, heading order, alt text, labels, named links and buttons, unique ids, valid ARIA references). The keyboard works: logical tab order, a visible 2px outline everywhere, and the lightbox traps focus and returns it.
+  - **Fixed:** the empty lightbox `src`. On Services, the duplicate photo links now carry `tabindex="-1" aria-hidden="true"`; the text link in each card is the accessible one.
+  - **Safari:** the user is checking it themselves, using a checklist.
+  - **Real phone:** deferred to right after M9, on the live URL.
+  - **Not tested:** Firefox (not installed) and the reduced-motion path (the preview can't emulate it).
 - [ ] **M9 Deploy:** GitHub and Vercel
 - [ ] **M10 Real content:** photos, real contact details, form service, domain
 
