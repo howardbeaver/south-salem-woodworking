@@ -15,7 +15,10 @@ This is a fresh project. Don't reuse code, assets or decisions from the user's o
 index.html      home: header, hero, four category thumbnails, footer
 css/style.css   all styles; colour and size tokens on :root
 dev-server.py   local server on port 8080 with no-cache (development only)
-images/         hero/, kitchens/, bathrooms/, interiors/, exteriors/
+images/         hero/hero-exterior.jpg (2400x1350)
+                <category>/cover.jpg (1200x900) and <singular>-01..09.jpg (1600x1200)
+                for kitchens, bathrooms, interiors, exteriors
+images/PLACEHOLDERS.md   source of every placeholder photo
 README.md       overview, how to run, milestones
 ```
 
@@ -36,7 +39,18 @@ This serves http://localhost:8080.
 
 ## Decisions
 
-- **Look:** sophisticated and upscale. The starting palette is charcoal, warm wood and cream (tokens on `:root`), with a text logo. M2 refines it.
+- **Look:** sophisticated and upscale, in the spirit of Architectural Digest.
+- **Type (M2):** "Architectural". Montserrat 500/600 for display (logo, nav, headings in spaced uppercase) and Lora 400 (plus italic) for body text, loaded from Google Fonts. Use `--font-display` and `--font-body`.
+- **Palette (M2):** "Slate & Brass". Use the tokens on `:root` rather than new hex values:
+  - `--slate` `#1f2a36`: header, footer, headings.
+  - `--ink` `#26303a`: body text.
+  - `--ivory` `#f7f4ee`: page background.
+  - `--brass` `#a07a45`: rules, borders and large display only (3.6:1 on ivory, too faint for small text).
+  - `--brass-text` `#866536`: small brass text on ivory (4.9:1).
+  - `--brass-light` `#c9a56b`: brass text on slate (6.3:1).
+- **Logo (M2):** "B2, tightened". "South Salem Woodworking" in Montserrat 600 18px uppercase at 0.12em letter-spacing, over a 1px brass rule, with "Fine Home Remodeling" below in Montserrat 500 10px at 0.42em. It sits in an 84px slate header, with the nav at 12px and 0.18em. Only the name was tightened; leave the tagline and nav spacing as they are.
+- **Placeholder photos (M2):** free Unsplash photos (Unsplash licence) picked to look editorial: classic Northeast houses for exteriors, and warm stone, wood and brass interiors. They're **not** Jeff's work. Every one must be replaced before launch (M10); `images/PLACEHOLDERS.md` lists each file's source. Keep the same filenames when swapping in real photos.
+- **Known until M7:** the header doesn't fit at phone width (it forces the page to about 645px). The M7 phone menu fixes this.
 - **Home page:** one large hero image of a home exterior, with four thumbnails under it (Kitchens, Bathrooms, Interiors, Exteriors). Each thumbnail links to its gallery page.
 - **Galleries:** a photo grid. Clicking a photo opens a full-screen lightbox with arrows, keyboard and swipe navigation, written in plain JavaScript with no library.
 - **Other pages:** About, Services and Contact.
@@ -49,7 +63,7 @@ This serves http://localhost:8080.
 Each milestone ends with a commit whose message starts with its ID.
 
 - [x] **M1 Setup:** folders, page skeleton, dev server, README, `git init`
-- [ ] **M2 Design direction:** fonts, palette, text logo, placeholder images
+- [x] **M2 Design direction:** fonts, palette, text logo, placeholder images
 - [ ] **M3 Home page:** header, hero, four category thumbnails, footer (desktop)
 - [ ] **M4 Gallery template:** Kitchens grid with a lightbox
 - [ ] **M5 Other galleries:** Bathrooms, Interiors, Exteriors

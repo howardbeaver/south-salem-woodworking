@@ -23,12 +23,23 @@ Then open http://localhost:8080. The server sends `Cache-Control: no-cache`, so 
 
 ## Images
 
-Photos go in `images/`, one folder per category (`hero/`, `kitchens/`, `bathrooms/`, `interiors/`, `exteriors/`). Placeholders are used until the real photos arrive (M10).
+Photos go in `images/`, one folder per category (`hero/`, `kitchens/`, `bathrooms/`, `interiors/`, `exteriors/`).
+
+- Hero: `hero/hero-exterior.jpg`, 2400x1350.
+- Each category: `cover.jpg` at 1200x900 for the home page thumbnail, plus `kitchen-01.jpg` to `kitchen-09.jpg` (and so on) at 1600x1200 for the gallery.
+
+The current photos are **placeholders**: free Unsplash stock photos, not Jeff's work. `images/PLACEHOLDERS.md` lists where each one came from. Replace them all with real project photos, keeping the same filenames, before the site launches (M10).
+
+## Design
+
+- **Type:** Montserrat (display) and Lora (body), from Google Fonts.
+- **Colours:** slate `#1f2a36`, ink `#26303a`, ivory `#f7f4ee`, and brass `#a07a45` (with `#866536` for small text on ivory and `#c9a56b` on slate).
+- **Logo:** "South Salem Woodworking" in spaced capitals over a thin brass rule, with "Fine Home Remodeling" beneath.
 
 ## Milestones
 
 - [x] **M1 Setup:** folders, page skeleton, dev server, README, `git init`
-- [ ] **M2 Design direction:** fonts, palette, text logo, placeholder images
+- [x] **M2 Design direction:** fonts, palette, text logo, placeholder images
 - [ ] **M3 Home page:** header, hero, four category thumbnails, footer (desktop)
 - [ ] **M4 Gallery template:** Kitchens grid with a lightbox
 - [ ] **M5 Other galleries:** Bathrooms, Interiors, Exteriors
