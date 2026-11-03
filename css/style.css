@@ -15,6 +15,8 @@
   --font-body: "Lora", Georgia, "Times New Roman", serif;
 
   --header-h: 84px;
+  --pad-x: 32px;           /* side padding for header, hero text, footer */
+  --content-w: 1200px;     /* max width of centred content */
   --gutter: 16px;
 }
 
@@ -62,7 +64,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   min-height: var(--header-h);
-  padding: 0 32px;
+  padding: 0 var(--pad-x);
   background: var(--slate);
   color: var(--ivory);
 }
@@ -114,7 +116,286 @@ h3 {
 }
 
 .logo:focus-visible,
-.site-nav a:focus-visible {
+.site-nav a:focus-visible,
+.hero-link:focus-visible,
+.site-footer a:focus-visible {
   outline: 2px solid var(--brass-light);
   outline-offset: 6px;
+}
+
+/* ---------- Home fold ---------- */
+
+/* Header, hero and thumbnails fill exactly one screen so the thumbnails
+   are always above the fold. The hero flexes to take the leftover height. */
+.home-fold {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100svh;
+  min-height: 560px;
+}
+
+.home-fold main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* ---------- Hero ---------- */
+
+/* Full-bleed photo with the headline over a soft slate gradient */
+.hero {
+  position: relative;
+  flex: 1;
+  min-height: 220px;
+  overflow: hidden;
+  background: var(--slate);
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 55%;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(31, 42, 54, 0.85) 0%, rgba(31, 42, 54, 0.4) 35%, rgba(31, 42, 54, 0) 62%);
+  pointer-events: none;
+}
+
+.hero-text {
+  position: absolute;
+  left: var(--pad-x);
+  right: var(--pad-x);
+  bottom: clamp(20px, 5vh, 44px);
+  z-index: 1;
+}
+
+.hero h1 {
+  margin-bottom: clamp(10px, 2vh, 18px);
+  color: var(--ivory);
+  font-size: clamp(20px, min(4.2vh, 6.4vw), 34px);
+  letter-spacing: 0.14em;
+}
+
+.hero h1 .line {
+  display: block;
+}
+
+.hero-link {
+  display: inline-block;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--brass-light);
+  color: var(--ivory);
+  font: 500 12px/1 var(--font-display);
+  letter-spacing: 0.22em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.hero-link::after {
+  content: " \2192";
+}
+
+.hero-link:hover {
+  color: var(--brass-light);
+}
+
+/* ---------- Category thumbnails ---------- */
+
+.categories {
+  --thumb-max-h: 24svh;    /* tallest a thumbnail may be, so the row fits the fold */
+  --thumb-gap: 20px;
+  flex: none;
+  width: 100%;
+  max-width: var(--content-w);
+  margin: 0 auto;
+  padding: clamp(16px, 3vh, 28px) var(--pad-x) clamp(16px, 3.5vh, 32px);
+  text-align: center;
+}
+
+.categories h2 {
+  margin-bottom: clamp(12px, 2.2vh, 20px);
+  font-size: 16px;
+  letter-spacing: 0.28em;
+}
+
+/* The row's width is capped by the height limit: four 3:2 thumbnails
+   of --thumb-max-h each, plus the gaps. */
+.category-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--thumb-gap);
+  max-width: calc(4 * 1.5 * var(--thumb-max-h) + 3 * var(--thumb-gap));
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.category {
+  display: block;
+  color: var(--slate);
+  text-decoration: none;
+}
+
+.category-photo {
+  display: block;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--slate);
+}
+
+.category-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.category-name {
+  display: block;
+  margin-top: 12px;
+  font: 600 13px/1 var(--font-display);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Thin brass rule under each label that extends on hover */
+.category-name::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  margin: 9px auto 0;
+  background: var(--brass);
+  transition: width 0.4s ease;
+}
+
+.category:hover .category-photo img,
+.category:focus-visible .category-photo img {
+  transform: scale(1.04);
+}
+
+.category:hover .category-name::after,
+.category:focus-visible .category-name::after {
+  width: 64px;
+}
+
+.category:focus-visible {
+  outline: 2px solid var(--brass-text);
+  outline-offset: 6px;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  padding: 56px var(--pad-x) 28px;
+  background: var(--slate);
+  color: var(--ivory);
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  max-width: var(--content-w);
+  margin: 0 auto;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-brand .logo-name {
+  font-size: 15px;
+}
+
+.footer-brand p {
+  margin: 18px 0 0;
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+.site-footer h2 {
+  margin-bottom: 16px;
+  color: var(--brass-light);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+}
+
+.footer-contact p {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.footer-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-nav li {
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.site-footer a {
+  color: var(--ivory);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--brass-light);
+}
+
+.footer-legal {
+  max-width: var(--content-w);
+  margin: 48px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(201, 165, 107, 0.25); /* --brass-light at 25% */
+  font: 500 11px/1 var(--font-display);
+  letter-spacing: 0.14em;
+  opacity: 0.7;
+}
+
+/* ---------- Narrower screens (full responsive pass in M7) ---------- */
+
+@media (max-width: 900px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Phones: two rows of two, each row allowed less height */
+@media (max-width: 600px) {
+  .categories {
+    --thumb-max-h: 15svh;
+    --thumb-gap: 14px;
+  }
+
+  .category-list {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: calc(2 * 1.5 * var(--thumb-max-h) + var(--thumb-gap));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .category-photo img,
+  .category-name::after {
+    transition: none;
+  }
 }

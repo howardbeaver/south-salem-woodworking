@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- Header, hero and thumbnails share one screen height; the hero takes what's left -->
+  <div class="home-fold">
   <header class="site-header">
     <a class="logo" href="index.html">
       <span class="logo-name">South Salem Woodworking</span>
@@ -26,23 +28,73 @@
   </header>
 
   <main>
-    <!-- M3: large exterior hero image -->
-    <section class="hero" aria-label="Featured project"></section>
+    <section class="hero">
+      <img class="hero-img" src="images/hero/hero-exterior.jpg" width="2400" height="1350"
+           alt="A grey shingled house with a mansard roof and a wraparound porch" fetchpriority="high">
+      <div class="hero-text">
+        <h1>Crafted Homes <span class="line">in Northern Westchester</span></h1>
+        <a class="hero-link" href="#our-work">View our work</a>
+      </div>
+    </section>
 
-    <!-- M3: four category thumbnails, each linking to its gallery (M4, M5) -->
-    <section class="categories" aria-labelledby="categories-heading">
+    <section class="categories" id="our-work" aria-labelledby="categories-heading">
       <h2 id="categories-heading">Our Work</h2>
       <ul class="category-list">
-        <li><a href="kitchens.html">Kitchens</a></li>
-        <li><a href="bathrooms.html">Bathrooms</a></li>
-        <li><a href="interiors.html">Interiors</a></li>
-        <li><a href="exteriors.html">Exteriors</a></li>
+        <li>
+          <a class="category" href="kitchens.html">
+            <span class="category-photo"><img src="images/kitchens/cover.jpg" width="1200" height="900" alt="" loading="lazy"></span>
+            <span class="category-name">Kitchens</span>
+          </a>
+        </li>
+        <li>
+          <a class="category" href="bathrooms.html">
+            <span class="category-photo"><img src="images/bathrooms/cover.jpg" width="1200" height="900" alt="" loading="lazy"></span>
+            <span class="category-name">Bathrooms</span>
+          </a>
+        </li>
+        <li>
+          <a class="category" href="interiors.html">
+            <span class="category-photo"><img src="images/interiors/cover.jpg" width="1200" height="900" alt="" loading="lazy"></span>
+            <span class="category-name">Interiors</span>
+          </a>
+        </li>
+        <li>
+          <a class="category" href="exteriors.html">
+            <span class="category-photo"><img src="images/exteriors/cover.jpg" width="1200" height="900" alt="" loading="lazy"></span>
+            <span class="category-name">Exteriors</span>
+          </a>
+        </li>
       </ul>
     </section>
   </main>
+  </div>
 
   <footer class="site-footer">
-    <p>&copy; 2026 South Salem Woodworking &middot; Jeff Cyrnic</p>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-name">South Salem Woodworking</span>
+        <span class="logo-tag">Fine Home Remodeling</span>
+        <p>Jeff Cyrnic, General Contractor</p>
+      </div>
+
+      <!-- PLACEHOLDER contact details: replace with Jeff's real ones (M10) -->
+      <div class="footer-contact">
+        <h2>Contact</h2>
+        <p><a href="tel:+19145550100">(914) 555-0100</a></p>
+        <p><a href="mailto:info@example.com">info@example.com</a></p>
+        <p>Serving northern Westchester</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="footer-legal">&copy; 2026 South Salem Woodworking</p>
   </footer>
 </body>
 </html>

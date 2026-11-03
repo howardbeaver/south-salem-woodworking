@@ -50,6 +50,12 @@ This serves http://localhost:8080.
   - `--brass-light` `#c9a56b`: brass text on slate (6.3:1).
 - **Logo (M2):** "B2, tightened". "South Salem Woodworking" in Montserrat 600 18px uppercase at 0.12em letter-spacing, over a 1px brass rule, with "Fine Home Remodeling" below in Montserrat 500 10px at 0.42em. It sits in an 84px slate header, with the nav at 12px and 0.18em. Only the name was tightened; leave the tagline and nav spacing as they are.
 - **Placeholder photos (M2):** free Unsplash photos (Unsplash licence) picked to look editorial: classic Northeast houses for exteriors, and warm stone, wood and brass interiors. They're **not** Jeff's work. Every one must be replaced before launch (M10); `images/PLACEHOLDERS.md` lists each file's source. Keep the same filenames when swapping in real photos.
+- **Home fold (M3):** the thumbnails must be **above the fold on every major viewport**. `.home-fold` wraps the header and `<main>` at exactly `100svh` (min 560px). The hero flexes into whatever height is left (min 220px). Each thumbnail's height is capped at `--thumb-max-h`, which caps the row's width; it's 24svh on desktop and tablet and 15svh on phones, where the thumbnails sit two by two. The Our Work padding and the hero text spacing scale with `vh` via `clamp()`.
+  - **Checked (inner window sizes):** 1920x960, 1536x730, 1440x789, 1366x657, 1280x689, 1200x800, 1024x768, 820x1180 and 768x1024. 390x844 and 375x667 were checked with the M7 header simulated.
+  - **If you add anything to the fold,** re-check 1366x657 and 375x667; those are the tightest.
+- **Home hero (M3):** a full-bleed photo with a slate gradient rising from the bottom. The headline "Crafted Homes / in Northern Westchester" (draft copy) is in ivory Montserrat at 0.14em, `clamp(20px, min(4.2vh, 6.4vw), 34px)`, over a "View our work →" link that jumps to `#our-work`.
+- **Home thumbnails (M3):** a small "Our Work" heading (16px), then four 3:2 cover photos in one row (two by two at 600px and below). Each has a spaced-capitals label and a 28px brass rule underneath. On hover or focus the photo scales to 1.04 and the rule grows to 64px; the motion is turned off for reduced-motion users. The italic intro line was removed to save height.
+- **Footer (M3):** slate background in three columns: brand (logo plus "Jeff Cyrnic, General Contractor"), Contact (placeholder phone (914) 555-0100, info@example.com, service area) and Explore (page links). A thin brass line sits above the © line.
 - **Known until M7:** the header doesn't fit at phone width (it forces the page to about 645px). The M7 phone menu fixes this.
 - **Home page:** one large hero image of a home exterior, with four thumbnails under it (Kitchens, Bathrooms, Interiors, Exteriors). Each thumbnail links to its gallery page.
 - **Galleries:** a photo grid. Clicking a photo opens a full-screen lightbox with arrows, keyboard and swipe navigation, written in plain JavaScript with no library.
@@ -60,11 +66,11 @@ This serves http://localhost:8080.
 
 ## Milestones
 
-Each milestone ends with a commit whose message starts with its ID.
+Each milestone ends with a commit whose message starts with its ID, but **only after the user says ok** (from M3 on). Finish and verify the milestone, show it, then wait for approval before committing.
 
 - [x] **M1 Setup:** folders, page skeleton, dev server, README, `git init`
 - [x] **M2 Design direction:** fonts, palette, text logo, placeholder images
-- [ ] **M3 Home page:** header, hero, four category thumbnails, footer (desktop)
+- [x] **M3 Home page:** header, hero, four category thumbnails, footer; thumbnails above the fold on all major viewports (further tweaks expected later)
 - [ ] **M4 Gallery template:** Kitchens grid with a lightbox
 - [ ] **M5 Other galleries:** Bathrooms, Interiors, Exteriors
 - [ ] **M6 About, Services, Contact:** placeholder text, contact details, form (not connected)
@@ -76,5 +82,6 @@ Each milestone ends with a commit whose message starts with its ID.
 ## Working agreements
 
 - Build one milestone at a time. Ask clarifying questions **one at a time**.
+- **Don't commit a milestone until the user says ok.**
 - Verify changes in the browser preview at 1200x800 (desktop) and 375px (phone) before committing, and at 768px (tablet) when the layout changes.
 - Asset paths stay relative and must match the filenames' case exactly, because Vercel's filesystem is case-sensitive and macOS isn't.
