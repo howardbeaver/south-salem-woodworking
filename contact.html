@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | South Salem Woodworking</title>
+  <meta name="description" content="Contact South Salem Woodworking and Jeff Cyrnic about a kitchen, bathroom, interior or exterior remodeling project.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Montserrat:wght@500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/contact.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <span class="logo-name">South Salem Woodworking</span>
+      <span class="logo-tag">Fine Home Remodeling</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-intro">
+      <h1>Contact</h1>
+      <p>Tell us about your home and your project. Jeff will be in touch to arrange a visit.</p>
+    </section>
+
+    <div class="contact-layout">
+      <!-- NOT CONNECTED: js/contact.js stops the submit and shows a note.
+           To connect (M10): set action to the form service URL (e.g. Formspree)
+           and remove data-not-connected. -->
+      <form class="contact-form" action="" method="post" data-not-connected>
+        <div class="field">
+          <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="town">Town</label>
+            <input id="town" name="town" type="text" autocomplete="address-level2">
+          </div>
+          <div class="field">
+            <label for="project">Project</label>
+            <select id="project" name="project">
+              <option value="">Choose one</option>
+              <option>Kitchen</option>
+              <option>Bathroom</option>
+              <option>Interior</option>
+              <option>Exterior</option>
+              <option>Addition</option>
+              <option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="message">About your project <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+        <p class="form-note"><span aria-hidden="true">*</span> Required</p>
+        <button class="form-submit" type="submit">Send message</button>
+        <p class="form-status" role="status"></p>
+      </form>
+
+      <!-- PLACEHOLDER contact details: replace with Jeff's real ones (M10) -->
+      <aside class="contact-details" aria-label="Contact details">
+        <h2>Jeff Cyrnic</h2>
+        <p class="contact-role">General Contractor</p>
+        <dl>
+          <dt>Phone</dt>
+          <dd><a href="tel:+19145550100">(914) 555-0100</a></dd>
+          <dt>Email</dt>
+          <dd><a href="mailto:info@example.com">info@example.com</a></dd>
+          <dt>Service area</dt>
+          <dd>Northern Westchester: [towns served]</dd>
+          <dt>Hours</dt>
+          <dd>[Monday to Friday, 8am to 5pm]</dd>
+        </dl>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-name">South Salem Woodworking</span>
+        <span class="logo-tag">Fine Home Remodeling</span>
+        <p>Jeff Cyrnic, General Contractor</p>
+      </div>
+
+      <!-- PLACEHOLDER contact details: replace with Jeff's real ones (M10) -->
+      <div class="footer-contact">
+        <h2>Contact</h2>
+        <p><a href="tel:+19145550100">(914) 555-0100</a></p>
+        <p><a href="mailto:info@example.com">info@example.com</a></p>
+        <p>Serving northern Westchester</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="footer-legal">&copy; 2026 South Salem Woodworking</p>
+  </footer>
+</body>
+</html>

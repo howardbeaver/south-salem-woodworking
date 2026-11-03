@@ -17,8 +17,12 @@ kitchens.html   gallery template: intro, lead photo + grid, More Work links, lig
 bathrooms.html  \
 interiors.html   > copies of kitchens.html with their own title, description, intro,
 exteriors.html  /  photos, alt text and More Work links (M5)
+about.html      photo + bio (placeholder), How We Work values, call to action (M6)
+services.html   four service cards linking to the galleries, 4-step process, call to action (M6)
+contact.html    form (not connected) + slate details panel (M6)
 css/style.css   all styles; colour and size tokens on :root
 js/gallery.js   lightbox shared by every gallery page
+js/contact.js   stops the contact form submitting while it isn't connected
 dev-server.py   local server on port 8080 with no-cache (development only)
 images/         hero/hero-exterior.jpg (2400x1000, wide crop; shown with object-position center 70%)
                 <category>/cover.jpg (1200x900) and <singular>-01..09.jpg (1600x1200)
@@ -27,9 +31,7 @@ images/PLACEHOLDERS.md   source of every placeholder photo
 README.md       overview, how to run, milestones
 ```
 
-Planned: `about.html`, `services.html` and `contact.html` (M6). Each page shares the same header and footer.
-
-**The four gallery pages are hand-kept copies.** A change to the shared header, footer, lightbox markup or gallery structure has to be made in all four (and in `index.html` for the header and footer). The intro lines are draft copy:
+**Every page is a hand-kept copy of the shared header and footer** (8 pages). A change to either has to be made in all of them. The About, Services and Contact links carry `aria-current="page"` on their own page, which draws them in brass with a thin rule underneath. The same applies to the four gallery pages' lightbox markup and gallery structure. The gallery intro lines are draft copy:
 - Kitchens: "Custom cabinetry, stone and millwork, planned around the way each family cooks and gathers."
 - Bathrooms: "Stone, tile and custom vanities, finished with the care of fine furniture."
 - Interiors: "Millwork, built-ins and fireplaces: the details that make a room feel finished."
@@ -77,8 +79,14 @@ This serves http://localhost:8080.
   - **While open:** page scrolling is locked (`.lightbox-open` on `<html>`) and both neighbouring photos are preloaded.
   - **On close:** focus returns to the last photo viewed.
   - **Any gallery page needs:** the same `<dialog>` markup and `<script src="js/gallery.js" defer>`.
-- **Other pages:** About, Services and Contact.
-- **Contact:** contact details plus a form. The form isn't connected yet; it'll go through a service such as Formspree once Jeff's real email is known (M10).
+- **Content pages (M6):** they share the gallery `.page-intro`, then reuse existing photos (no new downloads). They end in a tinted band (`.values` or `.process`, brass at 8%) and a `.cta-band` linking to Contact.
+  - **Placeholders:** every fact about Jeff that we don't know is written in **[brackets]**: years in business, towns served, background, licence numbers, hours. Never invent these; replace them with what the user supplies (M10). The service descriptions and process steps are draft copy for Jeff to confirm.
+  - **About:** a `.split` with the photo (interiors/interior-01) beside the bio, then How We Work (three values).
+  - **Services:** four `.service` cards (category cover, short description, "See kitchens →" link), 2 by 2, then How a Project Works (four numbered steps).
+- **Contact (M6):** a form (name*, email*, phone, town, project type, message*) beside a slate panel with phone, email, service area and hours (placeholders). The browser checks the required fields.
+  - **Not connected yet:** the form has `data-not-connected` and an empty `action`. `js/contact.js` stops the submit and shows "This form isn't connected yet, so your message was not sent…" in a `role="status"` box.
+  - **To connect it (M10):** set `action` to the form service URL (e.g. Formspree) and remove `data-not-connected`.
+  - **Inputs use 16px text** so iOS doesn't zoom into them.
 - **Placeholders:** images, phone (555), email (example.com) and service area are clearly marked placeholders until the user supplies real ones.
 - **Hosting:** GitHub + Vercel. A custom domain may come later.
 
@@ -91,7 +99,7 @@ Each milestone ends with a commit whose message starts with its ID, but **only a
 - [x] **M3 Home page:** header, hero, four category thumbnails, footer; thumbnails above the fold on all major viewports (further tweaks expected later)
 - [x] **M4 Gallery template:** Kitchens grid with a lightbox (further tweaks expected later)
 - [x] **M5 Other galleries:** Bathrooms, Interiors, Exteriors
-- [ ] **M6 About, Services, Contact:** placeholder text, contact details, form (not connected)
+- [x] **M6 About, Services, Contact:** placeholder text, contact details, form (not connected)
 - [ ] **M7 Responsive:** tablet and phone layouts, phone menu
 - [ ] **M8 Testing:** Chrome, Safari, a real phone
 - [ ] **M9 Deploy:** GitHub and Vercel

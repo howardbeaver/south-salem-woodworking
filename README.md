@@ -43,7 +43,7 @@ The current photos are **placeholders**: free Unsplash stock photos, not Jeff's 
 - [x] **M3 Home page:** header, hero, four category thumbnails, footer; thumbnails above the fold on all major viewports
 - [x] **M4 Gallery template:** Kitchens grid with a lightbox
 - [x] **M5 Other galleries:** Bathrooms, Interiors, Exteriors
-- [ ] **M6 About, Services, Contact:** placeholder text, contact details, form (not connected)
+- [x] **M6 About, Services, Contact:** placeholder text, contact details, form (not connected)
 - [ ] **M7 Responsive:** tablet and phone layouts, phone menu
 - [ ] **M8 Testing:** Chrome, Safari, a real phone
 - [ ] **M9 Deploy:** GitHub and Vercel
