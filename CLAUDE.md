@@ -99,6 +99,7 @@ This serves http://localhost:8080.
   - **The lightbox `<img>` has no `src` in the markup** (an empty `src` is invalid and can re-request the page); `gallery.js` sets it on open.
 - **Lightbox (M4, `js/gallery.js`):** a native `<dialog class="lightbox">` opened with `showModal()`. It shows the link's full image, uncropped, with an "N / 9" counter, round prev/next buttons (at the sides on desktop, bottom centre on phones) and a close button that gets focus on open (`autofocus`).
   - **Controls:** ←/→ keys, swiping (50px or more, mostly horizontal) and the buttons all wrap around. Escape, the close button or a click outside the photo closes it.
+  - **Sideways phones** (`orientation: landscape` and `max-height: 500px`, kept last in the stylesheet): the photo gets ~97% of the height (6px top and bottom), and the controls move into 60px side margins: 44px arrows at the left and right edges, × top right, and the counter bottom left. An 844x390 phone went from 364x274 to 503x378.
   - **While open:** page scrolling is locked (`.lightbox-open` on `<html>`) and both neighbouring photos are preloaded.
   - **On close:** focus returns to the last photo viewed.
   - **Any gallery page needs:** the same `<dialog>` markup and `<script src="js/gallery.js" defer>`.

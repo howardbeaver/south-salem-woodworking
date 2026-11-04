@@ -1331,3 +1331,56 @@ h3 {
     letter-spacing: 0.3em;
   }
 }
+
+/* Phones turned sideways (short, wide screens): give the lightbox photo
+   almost the full height and move the controls into the side margins.
+   Kept last so it wins over the desktop and phone lightbox rules. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .lightbox-figure {
+    gap: 0;
+    padding: 6px 60px;
+  }
+
+  .lightbox-img {
+    max-height: 100%;
+  }
+
+  .lightbox-btn,
+  .lightbox-close {
+    width: 44px;
+    height: 44px;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+
+  .lightbox-prev {
+    left: 8px;
+    right: auto;
+  }
+
+  .lightbox-next {
+    right: 8px;
+    left: auto;
+  }
+
+  .lightbox-close {
+    top: 8px;
+    right: 8px;
+  }
+
+  /* "2 / 9" sits in the bottom-left margin instead of under the photo */
+  .lightbox-count {
+    position: absolute;
+    bottom: 12px;
+    left: 8px;
+    width: 44px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+}
