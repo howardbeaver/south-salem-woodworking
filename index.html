@@ -17,7 +17,7 @@
   <!-- Header, hero and thumbnails share one screen height; the hero takes what's left -->
   <div class="home-fold">
   <!-- PREVIEW: remove at launch (M10) -->
-  <p class="preview-note">Preview site &middot; Sample photos</p>
+  <div class="preview-note" aria-hidden="true"></div>
   <header class="site-header">
     <a class="logo" href="index.html">
       <span class="logo-name">South Salem Woodworking</span>
@@ -104,7 +104,11 @@
         </ul>
       </nav>
     </div>
-    <p class="footer-legal">&copy; 2026 South Salem Woodworking</p>
+    <p class="footer-legal">
+      <span>&copy; 2026 South Salem Woodworking</span>
+      <!-- PREVIEW: remove at launch (M10) -->
+      <span class="footer-preview">Preview site &middot; Sample photos</span>
+    </p>
   </footer>
 </body>
 </html>
