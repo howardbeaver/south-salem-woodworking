@@ -584,6 +584,26 @@ h3 {
   outline-offset: 4px;
 }
 
+/* Framed photos site-wide, like the home thumbnails: a 1px black frame that
+   turns gold and 2px wide on hover or focus (inside the box, so nothing
+   shifts). The About photo isn't a link, so it gets the frame only. */
+.gallery a,
+.service-photo {
+  border: 1px solid #000;
+  transition: border-color 0.3s ease, border-width 0.3s ease;
+}
+
+.gallery a:hover,
+.gallery a:focus-visible,
+.service-photo:hover {
+  border-width: 2px;
+  border-color: var(--brass);
+}
+
+.split-photo img {
+  border: 1px solid #000;
+}
+
 .more-work {
   max-width: var(--content-w);
   margin: 0 auto;
@@ -1277,6 +1297,8 @@ h3 {
   .category-photo img,
   .category-name::after,
   .gallery img,
+  .gallery a,
+  .service-photo,
   .lightbox-img,
   .service-photo img,
   .menu-icon,
