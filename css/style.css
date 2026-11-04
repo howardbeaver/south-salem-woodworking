@@ -359,6 +359,8 @@ h3 {
   display: block;
   aspect-ratio: 3 / 2;
   overflow: hidden;
+  border: 1px solid #000; /* black frame, at the user's request */
+  transition: border-color 0.3s ease, border-width 0.3s ease;
   background: var(--slate);
 }
 
@@ -391,6 +393,13 @@ h3 {
 .category:hover .category-photo img,
 .category:focus-visible .category-photo img {
   transform: scale(1.04);
+}
+
+/* The black frame turns gold and thickens to 2px (inside the box, so nothing shifts) */
+.category:hover .category-photo,
+.category:focus-visible .category-photo {
+  border-width: 2px;
+  border-color: var(--brass);
 }
 
 .category:hover .category-name::after,
@@ -1264,6 +1273,7 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .category-photo,
   .category-photo img,
   .category-name::after,
   .gallery img,
