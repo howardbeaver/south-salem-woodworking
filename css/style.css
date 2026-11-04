@@ -991,6 +991,7 @@ h3 {
   max-width: 100%;
   max-height: calc(100% - 36px);
   object-fit: contain;
+  border: 2px solid var(--brass); /* gold frame, at the user's request */
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
   transition: opacity 0.25s ease;
 }
