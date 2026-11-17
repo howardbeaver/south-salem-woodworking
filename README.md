@@ -1,6 +1,6 @@
-# South Salem Woodworking
+# Salem Woodworking
 
-A website for South Salem Woodworking, the home remodeling business of Jeff Cernak. It's aimed at upscale clients and shows his work in four photo galleries: Kitchens, Bathrooms, Interiors and Exteriors.
+A website for Salem Woodworking, the home remodeling business of Jeff Cernak. It's aimed at upscale clients and shows his work in four photo galleries: Kitchens, Bathrooms, Interiors and Exteriors.
 
 The site is plain HTML, CSS and JavaScript, with no framework and no build step. It's hosted on Vercel from GitHub, and every push to `main` redeploys it.
 
@@ -38,7 +38,7 @@ The current photos are **placeholders**: free Unsplash stock photos, not Jeff's 
 
 - **Type:** Montserrat (display) and Lora (body), from Google Fonts.
 - **Colours:** slate `#1f2a36`, ink `#26303a`, ivory `#f7f4ee`, and a golden brass `#b08a35` (with `#86661a` for small text on ivory and `#d6b15e` on slate).
-- **Logo:** "South Salem Woodworking" in spaced capitals over a thin brass rule, with "Fine Home Remodeling" beneath.
+- **Logo:** "Salem Woodworking" in spaced capitals over a thin brass rule, with "Fine Home Remodeling" beneath.
 
 ## Milestones
 

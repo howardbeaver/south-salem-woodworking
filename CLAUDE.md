@@ -1,6 +1,6 @@
-# South Salem Woodworking
+# Salem Woodworking
 
-A multi-page website for South Salem Woodworking, the home remodeling business of general contractor Jeff Cernak. His clients are upscale, so the site should look sophisticated. It's plain HTML, CSS and JavaScript, with no framework, no build step and no npm. It's hosted on Vercel from GitHub.
+A multi-page website for Salem Woodworking, the home remodeling business of general contractor Jeff Cernak. His clients are upscale, so the site should look sophisticated. It's plain HTML, CSS and JavaScript, with no framework, no build step and no npm. It's hosted on Vercel from GitHub.
 
 - **Live (hidden preview):** https://south-salem-woodworking.vercel.app
 - **Repo:** https://github.com/howardbeaver/south-salem-woodworking. It's public, and every push to `main` redeploys on Vercel (Framework Preset: Other, no build command).
@@ -11,7 +11,7 @@ This is a fresh project. Don't reuse code, assets or decisions from the user's o
 
 ## Names
 
-- Business: **South Salem Woodworking** (one word, "Woodworking").
+- Business: **Salem Woodworking** (one word, "Woodworking"). Renamed from "South Salem Woodworking" on 2026-11-17 at the user's request. The GitHub repo and the Vercel address still use the old name (`south-salem-woodworking`); renaming those is a separate step.
 - Contractor: **Jeff Cernak**. The user gave this spelling on 2026-11-03; earlier commit messages use a guessed spelling. To change it again, search the project for `Cernak`.
 
 ## Files
@@ -72,7 +72,7 @@ This serves http://localhost:8080.
 - **Gold sheen (2026-11-04, user request):** the top band and the horizontal rules use a metallic gradient instead of flat brass. `--gold-sheen` runs `--gold-deep` (#8f6c22) → `--brass` → `--gold-highlight` (#f1dc9c, at 42%) → `--brass` → `--gold-deep`; `--gold-sheen-faint` is the same at low alpha for thin dividers on slate.
   - **Where it's used:** the top band (`.preview-note`, plus a soft top-to-bottom white/black sheen), the logo rule in the header and footer (`border-image`), the footer divider above the ©, and the phone menu's top edge and row dividers (faint).
   - **Not used on:** the short rules under the home thumbnail labels (tried, and the user found the sheen didn't read at that size) or the link underlines (hero link, More Work, "See kitchens" and so on). Both stay flat `--brass`.
-- **Logo (M2):** "B2, tightened". "South Salem Woodworking" in Montserrat 600 18px uppercase at 0.12em letter-spacing, over a 1px brass rule, with "Fine Home Remodeling" below in Montserrat 500 10px at 0.42em. It sits in an 84px slate header, with the nav at 12px and 0.18em. Only the name was tightened; leave the tagline and nav spacing as they are.
+- **Logo (M2):** "B2, tightened". "Salem Woodworking" in Montserrat 600 18px uppercase at 0.12em letter-spacing, over a 1px brass rule, with "Fine Home Remodeling" below in Montserrat 500 10px at 0.42em. It sits in an 84px slate header, with the nav at 12px and 0.18em. Only the name was tightened; leave the tagline and nav spacing as they are.
 - **Placeholder photos (M2):** free Unsplash photos (Unsplash licence) picked to look editorial: classic Northeast houses for exteriors, and warm stone, wood and brass interiors. They're **not** Jeff's work. Every one must be replaced before launch (M10); `images/PLACEHOLDERS.md` lists each file's source. Keep the same filenames when swapping in real photos.
 - **Home fold (M3):** the thumbnails must be **above the fold on every major viewport**. `.home-fold` wraps the header and `<main>` at exactly `100svh` (min 560px). The hero flexes into whatever height is left (min 220px). Each thumbnail's height is capped at `--thumb-max-h`, which caps the row's width; it's 24svh on desktop and tablet and 15svh on phones, where the thumbnails sit two by two. The Our Work padding and the hero text spacing scale with `vh` via `clamp()`.
   - **Checked (inner window sizes):** 1920x960, 1536x730, 1440x789, 1366x657, 1280x689, 1200x800, 1024x768, 820x1180 and 768x1024, plus phones 390x844, 375x812, 375x667 and 360x780 (with the real M7 header).

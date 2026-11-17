@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Local development server for South Salem Woodworking.
+"""Local development server for Salem Woodworking.
 
 Serves this folder at http://localhost:8080 and sends Cache-Control: no-cache,
 so edits show on a plain reload. Development only; it isn't deployed.
